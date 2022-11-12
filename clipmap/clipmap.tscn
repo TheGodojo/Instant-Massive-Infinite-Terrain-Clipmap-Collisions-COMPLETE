@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://clipmap/clipmap.gd" id="1_dgcx2"]
+[ext_resource type="Shader" path="res://clipmap/clipmap.gdshader" id="1_kftco"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wlro5"]
+render_priority = 0
+shader = ExtResource("1_kftco")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ptq1f"]
+size = Vector2(512, 512)
+subdivide_width = 511
+subdivide_depth = 511
+
+[node name="Clipmap" type="Node3D"]
+script = ExtResource("1_dgcx2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0665827)
+material_override = SubResource("ShaderMaterial_wlro5")
+mesh = SubResource("PlaneMesh_ptq1f")
+skeleton = NodePath("../..")
